@@ -1,0 +1,62 @@
+name: icapi_extractors
+sourceId: {{icapi_extractors_source_id}}
+ 
+capabilities:
+  - assetsAcl:
+      actions: [READ, WRITE]
+      scope:
+        datasetScope:
+          ids: [{{ icapi_ds_external_id }}]
+  - datasetsAcl:
+      actions: [READ]
+      scope:
+        idScope:
+          ids: [{{ icapi_ds_external_id }}]
+  - extractionPipelinesAcl:
+      actions: [READ]
+      scope:
+        datasetScope:
+          ids: [{{ icapi_ds_external_id }}]
+  - extractionRunsAcl:
+      actions: [READ, WRITE]
+      scope:
+        datasetScope:
+          ids: [{{ icapi_ds_external_id }}]
+  - filesAcl:
+      actions: [READ, WRITE]
+      scope:
+        datasetScope:
+          ids: [{{ icapi_ds_external_id }}]
+  - functionsAcl:
+      actions: [READ, WRITE]
+      scope:
+        all: {}
+  - groupsAcl:
+      actions: [LIST, READ]
+      scope:
+        currentuserscope: {}
+  - projectsAcl:
+      actions: [LIST, READ]
+      scope:
+        all: {}
+  - rawAcl:
+      actions: [LIST, READ, WRITE]
+      scope:
+        tableScope:
+          dbsToTables:
+            ice_cream_api: [icapi_assets_extractor]
+            State Store: [icapi_datapoints_extractor]
+  - sessionsAcl:
+      actions: [LIST, CREATE, DELETE]
+      scope:
+        all: {}
+  - timeSeriesAcl:
+      actions: [READ, WRITE]
+      scope:
+        datasetScope:
+          ids: [{{ icapi_ds_external_id }}]
+  - transformationsAcl:
+      actions: [READ, WRITE]
+      scope:
+        datasetScope:
+          ids: [{{ icapi_ds_external_id }}]

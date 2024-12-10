@@ -1,0 +1,36 @@
+name: data_pipeline_oee
+sourceId: {{data_pipeline_oee_source_id}}
+
+capabilities:
+  - assetsAcl:
+      actions: [READ]
+      scope:
+        datasetScope:
+          ids: [{{ icapi_ds_external_id }}]
+  - datasetsAcl:
+      actions: [READ]
+      scope:
+        idScope:
+          ids: [{{ uc_oee_ds_external_id }}, {{ icapi_ds_external_id }}]
+  - groupsAcl:
+      actions: [LIST, READ]
+      scope:
+        currentuserscope: {}
+  - projectsAcl:
+      actions: [LIST, READ]
+      scope:
+        all: {}
+  - sessionsAcl:
+      actions: [LIST, CREATE, DELETE]
+      scope:
+        all: {}
+  - timeSeriesAcl:
+      actions: [READ]
+      scope:
+        datasetScope:
+          ids: [{{ icapi_ds_external_id }}]
+  - timeSeriesAcl:
+      actions: [READ, WRITE]
+      scope:
+        datasetScope:
+          ids: [{{ uc_oee_ds_external_id }}]
